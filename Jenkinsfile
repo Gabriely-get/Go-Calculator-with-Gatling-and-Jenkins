@@ -8,7 +8,7 @@ pipeline {
                 sh 'go version'
                 sh 'cd /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/ && chmod 744 app'
                 sh 'pwd'
-                sh 'cd /app && go mod init && go build .'
+                sh 'chmod +r /app && cd /app && go mod init && go build .'
                 sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/ go run .'
             }
         }
