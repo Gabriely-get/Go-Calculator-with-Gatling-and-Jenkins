@@ -16,7 +16,7 @@ pipeline {
                         unzip /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip
                     else
                         rm -r /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0
-                        unzip /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip
+                        unzip -o /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip
                     fi
                 '''
             }
