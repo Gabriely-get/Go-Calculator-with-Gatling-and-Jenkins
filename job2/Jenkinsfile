@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Run Stress Test') {
             steps {
-                sh 'gatling-charts-highcharts-bundle-3.9.0/bin/gatling.sh | 1'
+                sh 'gatling-charts-highcharts-bundle-3.9.0/bin/gatling.sh << 1'
             }
         }
     }
