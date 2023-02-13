@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Run Stress Test') {
             steps {
-                sh 'gatling-charts-highcharts-bundle-3.9.0/bin/gatling.sh && read -n 1 -r -s -p $Type the number corresponding to your choice and press enter'
+                sh 'gatling-charts-highcharts-bundle-3.9.0/bin/gatling.sh && echo "1"'
             }
         }
     }
