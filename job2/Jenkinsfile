@@ -10,8 +10,15 @@ pipeline {
         }
         stage('Extract Gatling') {
             steps {
-                //sh 'killall apt apt-get && apt-get update && apt-get install unzip'
                 sh 'unzip gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
+            }
+        }
+        stage('Copy script to Gatling') {
+            steps {
+                sh 'unzip gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
+                sh 'cd gatling-charts-highcharts-bundle-3.9.0/user-files/simulations'
+                sh 'mkdir calculator && rm -r computerdatabase/'
+                sh 'cp ../../../CalculatorStressTestSimulation.java .'
             }
         }
     }
