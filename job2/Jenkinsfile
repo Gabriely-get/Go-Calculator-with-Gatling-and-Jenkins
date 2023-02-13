@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Download Gatling') {
+            steps {
+                sh "curl -LO https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.9.0/gatling-charts-highcharts-bundle-3.9.0-bundle.zip"
+            }
+        }
+        stage('Extract Gatling') {
+            steps {
+                unzip zipFile: 'gatling-charts-highcharts-bundle-3.9.0-bundle.zip', dir '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/'
+                sh "curl -LO https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.9.0/gatling-charts-highcharts-bundle-3.9.0-bundle.zip"
+            }
+        }
+    }
+}
