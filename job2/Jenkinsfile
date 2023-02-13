@@ -28,7 +28,7 @@ pipeline {
                 sh 'pwd'
                 sh 'cd gatling-charts-highcharts-bundle-3.9.0/user-files/simulations'
                 sh 'pwd'
-                sh 'mkdir -f gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator && rm -r gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/computerdatabase'
+                sh 'mkdir gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator && rm -r gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/computerdatabase'
                 sh 'cp ../../../CalculatorStressTestSimulation.java gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator'
             }
         }
