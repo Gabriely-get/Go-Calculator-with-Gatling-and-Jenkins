@@ -14,7 +14,6 @@ pipeline {
         }
         stage('Download Gatling') {
             steps {
-                sh 'pwd'
                 sh "curl -LO https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.9.0/gatling-charts-highcharts-bundle-3.9.0-bundle.zip"
             }
         }
@@ -25,14 +24,12 @@ pipeline {
         }
         stage('Copy script to Gatling') {
             steps {
-                sh 'pwd'
                 sh 'cd gatling-charts-highcharts-bundle-3.9.0/user-files/simulations'
                 sh 'mkdir gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator && rm -r gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/computerdatabase'
-                sh 'pwd'
                 sh 'cp CalculatorStressTestSimulation.java gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator'
             }
         }
-        stage('Run Stress Test') {
+        stage('Run Gatling') {
             steps {
                 sh '(echo 1; sleep 3; echo "\n") | gatling-charts-highcharts-bundle-3.9.0/bin/gatling.sh'
                 gatlingArchive()

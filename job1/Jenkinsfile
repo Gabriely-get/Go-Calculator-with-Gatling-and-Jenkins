@@ -3,10 +3,10 @@ pipeline {
     tools { go 'go-1.20' }
 
     stages {
-        stage('Run_Application') {
+        stage('Run Calculator') {
             steps {
                 sh 'cd /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/'
-                sh 'chmod 744 app && chmod +r app && cd app && go build . && go run .'
+                sh 'chmod +r app && cd app && go build . && go run .'
             }
         }
     }
