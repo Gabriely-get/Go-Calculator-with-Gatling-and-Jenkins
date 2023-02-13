@@ -7,9 +7,7 @@ pipeline {
             steps {
                 sh 'go version'
                 sh 'cd /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/ && chmod 744 app'
-                sh 'pwd && dir'
-                sh 'chmod +r app && cd app && go build .'
-                sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/ go run .'
+                sh 'chmod +r app && cd app && go build . && go run .'
             }
         }
         stage('Download_Gatling') {
