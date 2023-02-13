@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Run_Application') {
             steps {
-                sh 'go build .'
-                sh 'go run .'
+                sh 'app/go build .'
+                sh 'app/go run .'
             }
         }
         stage('Download_Gatling') {
