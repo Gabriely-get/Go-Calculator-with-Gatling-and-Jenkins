@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Extract Gatling') {
             steps {
-                sh 'killall apt apt-get && apt-get update && apt-get install unzip'
+                //sh 'killall apt apt-get && apt-get update && apt-get install unzip'
                 sh 'unzip gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
             }
         }
