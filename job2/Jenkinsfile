@@ -33,11 +33,8 @@ pipeline {
             }
         }
         stage('Run Stress Test') {
-            dir('.') {
-                sh '''
-                bin/gatling.sh -rf . -rsf user-files/resources/ -sf user-files/simulations/ -s Home_Page
-                '''
-                gatlingArchive()
+            steps {
+                sh '(echo 1; sleep 3; echo "\n") | gatling-charts-highcharts-bundle-3.9.0/bin/gatling.sh'
             }
         }
     }
