@@ -8,10 +8,11 @@ pipeline {
                 sh "curl -LO https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.9.0/gatling-charts-highcharts-bundle-3.9.0-bundle.zip"
             }
         }
-        /*stage('Extract Gatling') {
+        stage('Extract Gatling') {
             steps {
-                zipFile: 'gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
+                sh 'apt-get install unzip'
+                sh 'unzip gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
             }
-        }*/
+        }
     }
 }
