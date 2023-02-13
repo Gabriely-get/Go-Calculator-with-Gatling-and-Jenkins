@@ -10,20 +10,13 @@ pipeline {
         }
         stage('Extract Gatling') {
             steps {
-                sh '''#!/bin/bash
-                    if [ "$(dir /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test | grep gatling-charts-highcharts-bundle-3.9.0)" < 2 ];
-                    then 
-                        unzip /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip
-                    else
-                        rm -r /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0
-                        unzip -o /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip
-                    fi
-                '''
+                sh 'unzip -o /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
             }
         }
         stage('Copy script to Gatling') {
             steps {
-                sh 'cd /gatling-charts-highcharts-bundle-3.9.0/user-files/simulations'
+                sh 'pwd'
+                sh 'cd /gatling-charts-highcharts-bundle-3.9.0'
                 sh 'mkdir calculator && rm -r computerdatabase/'
                 sh 'cp ../../../CalculatorStressTestSimulation.java .'
             }
