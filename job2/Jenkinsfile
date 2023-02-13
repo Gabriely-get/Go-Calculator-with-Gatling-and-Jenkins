@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Extract Gatling') {
             steps {
-                sh 'unzip -o /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
+                sh 'unzip -o /var/jenkins_home/workspace/Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
             }
         }
         stage('Copy script to Gatling') {
