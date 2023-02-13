@@ -33,7 +33,10 @@ pipeline {
             }
         }
         stage('Run Stress Test') {
-            steps {
+            dir('.') {
+                sh '''
+                bin/gatling.sh -rf . -rsf user-files/resources/ -sf user-files/simulations/ -s Home_Page
+                '''
                 gatlingArchive()
             }
         }
