@@ -16,7 +16,7 @@ pipeline {
         stage('Copy script to Gatling') {
             steps {
                 sh 'pwd'
-                sh 'cd /gatling-charts-highcharts-bundle-3.9.0'
+                sh 'cd gatling-charts-highcharts-bundle-3.9.0'
                 sh 'mkdir calculator && rm -r computerdatabase/'
                 sh 'cp ../../../CalculatorStressTestSimulation.java .'
             }
