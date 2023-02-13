@@ -32,7 +32,7 @@ public class CalculatorStressTestSimulation extends Simulation {
         headers_11.put("Proxy-Connection", "keep-alive");
     
     
-        ScenarioBuilder scn = scenario("BasicSimulation")
+        ScenarioBuilder scn = scenario("CalculatorSimulation")
           .// Search
           exec(
             http("request_0")
@@ -57,19 +57,31 @@ public class CalculatorStressTestSimulation extends Simulation {
               .get("/history")
               .headers(headers_0)
           )
-          .pause(0.5)
+          .pause(1)
           .exec(
-            http("request_3")
+            http("request_4")
+              .get("/div/133/6986")
+              .headers(headers_0)
+          )
+          .pause(0)
+          .exec(
+            http("request_5")
               .get("/history")
               .headers(headers_0)
           )
-          .pause(10)
+          .pause(3)
           .exec(
-            http("request_12")
+            http("request_6")
+              .get("/history")
+              .headers(headers_0)
+          )
+          .pause(1)
+          .exec(
+            http("request_7")
               .get("/history")
               .headers(headers_0)
           );
     
-          setUp(scn.injectOpen(atOnceUsers(2))).protocols(httpProtocol);
+          setUp(scn.injectOpen(rampUsers(2500).during(10))).protocols(httpProtocol);
       }
 }
