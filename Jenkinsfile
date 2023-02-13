@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Run_Application') {
             steps {
-                sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/go build .'
-                sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/go run .'
+                sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/ go build .'
+                sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/ go run .'
             }
         }
         stage('Download_Gatling') {
