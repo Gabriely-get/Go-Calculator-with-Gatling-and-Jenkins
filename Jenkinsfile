@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Run_Application') {
             steps {
-                sh 'chmod +x /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/'
+                sh 'chmod 777 /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/'
                 sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/ go build .'
                 sh '/var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/app/ go run .'
             }
