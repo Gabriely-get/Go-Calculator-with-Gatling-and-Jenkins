@@ -29,7 +29,7 @@ pipeline {
                 sh 'cd gatling-charts-highcharts-bundle-3.9.0/user-files/simulations'
                 sh 'mkdir gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator && rm -r gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/computerdatabase'
                 sh 'pwd'
-                sh 'cp /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/CalculatorStressTestSimulation.java gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator'
+                sh 'cp CalculatorStressTestSimulation.java gatling-charts-highcharts-bundle-3.9.0/user-files/simulations/calculator'
             }
         }
     }
