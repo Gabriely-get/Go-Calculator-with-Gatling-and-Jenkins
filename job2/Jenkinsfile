@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Extract Gatling') {
             steps {
-                sh 'unzip -o gatling-charts-highcharts-bundle-3.9.0-bundle.zip && y'
+                sh 'unzip -f gatling-charts-highcharts-bundle-3.9.0-bundle.zip'
             }
         }
         stage('Copy script to Gatling') {
