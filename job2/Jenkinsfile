@@ -11,7 +11,7 @@ pipeline {
         stage('Extract Gatling') {
             steps {
                 sh '''#!/bin/bash
-                    if [ "$(dir /var/jenkins_home/workspace/ | grep Calculator-Gatling-Stress-Test)" == "" ];
+                    if [ "$(dir /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test | grep gatling-charts-highcharts-bundle-3.9.0)" < 2 ];
                     then 
                         unzip /var/jenkins_home/workspace/Calculator-Gatling-Stress-Test/gatling-charts-highcharts-bundle-3.9.0-bundle.zip
                     else
