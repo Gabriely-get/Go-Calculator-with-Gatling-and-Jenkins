@@ -14,11 +14,10 @@ import static io.gatling.javaapi.jdbc.JdbcDsl.*;
 public class CalculatorStressTestSimulation extends Simulation {
 
     {
-      String endpoint = System.getenv("endpoint");
-      String apiMapping = System.getenv("apiMapping");
+      String basepath = System.getenv("basepath");
 
         HttpProtocolBuilder httpProtocol = http
-          .baseUrl(endpoint + apiMapping)
+          .baseUrl(basepath)
           .inferHtmlResources(AllowList(), DenyList(".*\\.js", ".*\\.css", ".*\\.gif", ".*\\.jpeg", ".*\\.jpg", ".*\\.ico", ".*\\.woff", ".*\\.woff2", ".*\\.(t|o)tf", ".*\\.png", ".*detectportal\\.firefox\\.com.*"))
           .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
           .acceptEncodingHeader("gzip, deflate")
@@ -31,7 +30,7 @@ public class CalculatorStressTestSimulation extends Simulation {
         
         Map<CharSequence, String> headers_11 = new HashMap<>();
         headers_11.put("Cache-Control", "max-age=0");
-        headers_11.put("Origin", endpoint + apiMapping);
+        headers_11.put("Origin", basepath);
         headers_11.put("Proxy-Connection", "keep-alive");
     
     
