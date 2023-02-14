@@ -1,7 +1,17 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout(true)
+    }
 
     stages {
+        stage('Build') {
+            steps {
+                cleanWs()
+                checkout scm
+                echo "Building ${env.JOB_NAME}..."
+            }
+        }
         stage('Download Gatling') {
             steps {
                 sh "curl -LO https://repo1.maven.org/maven2/io/gatling/highcharts/gatling-charts-highcharts-bundle/3.9.0/gatling-charts-highcharts-bundle-3.9.0-bundle.zip"
