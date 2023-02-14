@@ -33,7 +33,6 @@ public class CalculatorStressTestSimulation extends Simulation {
     
     
         ScenarioBuilder scn = scenario("CalculatorSimulation")
-          .// Search
           exec(
             http("request_0")
               .get("/history")
@@ -50,38 +49,8 @@ public class CalculatorStressTestSimulation extends Simulation {
             http("request_2")
               .get("/history")
               .headers(headers_0)
-          )
-          .pause(1)
-          .exec(
-            http("request_3")
-              .get("/history")
-              .headers(headers_0)
-          )
-          .pause(1)
-          .exec(
-            http("request_4")
-              .get("/div/133/6986")
-              .headers(headers_0)
-          )
-          .pause(0)
-          .exec(
-            http("request_5")
-              .get("/history")
-              .headers(headers_0)
-          )
-          .pause(3)
-          .exec(
-            http("request_6")
-              .get("/history")
-              .headers(headers_0)
-          )
-          .pause(1)
-          .exec(
-            http("request_7")
-              .get("/history")
-              .headers(headers_0)
           );
     
-          setUp(scn.injectOpen(rampUsers(2500).during(10))).protocols(httpProtocol);
+          setUp(scn.injectOpen(atOnceUsers(2000), rampUsers(2500).during(15))).protocols(httpProtocol);
       }
 }
