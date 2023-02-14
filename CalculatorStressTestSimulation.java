@@ -14,7 +14,7 @@ import static io.gatling.javaapi.jdbc.JdbcDsl.*;
 public class CalculatorStressTestSimulation extends Simulation {
 
     {
-      String basepath = System.getenv("basepath");
+      String basepath = System.getenv("basePath");
 
         HttpProtocolBuilder httpProtocol = http
           .baseUrl(basepath)
