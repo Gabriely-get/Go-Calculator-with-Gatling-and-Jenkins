@@ -37,20 +37,8 @@ public class CalculatorStressTestSimulation extends Simulation {
             http("request_0")
               .get("/history")
               .headers(headers_0)
-          )
-          .pause(3)
-          .exec(
-            http("request_1")
-              .get("/div/133/6986")
-              .headers(headers_0)
-          )
-          .pause(3)
-          .exec(
-            http("request_2")
-              .get("/history")
-              .headers(headers_0)
           );
     
-          setUp(scn.injectOpen(atOnceUsers(2000), rampUsers(2500).during(15))).protocols(httpProtocol);
+          setUp(scn.injectOpen(atOnceUsers(2000), rampUsers(5000).during(10))).protocols(httpProtocol);
       }
 }
