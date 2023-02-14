@@ -16,7 +16,6 @@ public class CalculatorStressTestSimulation extends Simulation {
     {
       String endpoint = System.getenv("endpoint");
       String apiMapping = System.getenv("apiMapping");
-      System.out.println(endpoint+apiMapping);
 
         HttpProtocolBuilder httpProtocol = http
           .baseUrl(endpoint + apiMapping)
