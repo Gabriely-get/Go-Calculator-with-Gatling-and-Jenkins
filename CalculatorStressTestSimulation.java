@@ -33,7 +33,7 @@ public class CalculatorStressTestSimulation extends Simulation {
     
     
         ScenarioBuilder scn = scenario("CalculatorSimulation")
-          exec(
+          .exec(
             http("request_0")
               .get("/history")
               .headers(headers_0)
